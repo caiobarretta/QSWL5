@@ -7,12 +7,11 @@ import model.Usuario;
 
 public class UsuarioTestes extends TestCase  {
 	/*
-    1) O sistema deve permitir o cadastro de um usu·rio informando CPF , e-mail e password.
-		a) Um CPF È v·lido quando tem 11 caracteres numÈricos, caso contr·rio deve emitir uma
-		excepÁ„o indicando ìCPF invalidoî
-		b) Um e mail È v·lido quando tem pelo menos um caractere seguido por ì@î
-		c) Uma password È v·lida quando pelo menos tem um car·cter especial (!?.*, etc)
-	2) O sistema deve inserir 200 moedas na carteira do usu·rio apÛs o cadastro do usu·rio.
+    1) O sistema deve permitir o cadastro de um usu√°rio informando CPF , e-mail e password.
+		a) Um CPF √© v√°lido quando tem 11 caracteres num√©ricos, caso contr√°rio deve emitir uma
+		excep√ß√£o indicando ‚ÄúCPF invalido‚Äù
+		b) Um e mail √© v√°lido quando tem pelo menos um caractere seguido por ‚Äú@‚Äù
+		c) Uma password √© v√°lida quando pelo menos tem um car√°cter especial (!?.*, etc)
 	*/
 	
 	@Test
@@ -98,24 +97,65 @@ public class UsuarioTestes extends TestCase  {
 		assertEquals("CPF invalido", exMessage);
 	}
 
-	
 	@Test
-	public void testDadoEmailInvalidoDeveEmitirUmaExcepcaoDeCPFInvalido() {
+	public void testDadoEmailInvalidoDeveEmitirUmaExcepcaoDeEmailInvalido() {
 		//Arrange
 		String cpf = "01234567890";
 		String email = "@teste.com.br";
 		String senha = "12345";
 		
-		String exMessage = "";
-		
-		Usuario usr;
 		//Act
-		usr = new Usuario(cpf, email, senha);
+		Usuario usr = new Usuario(cpf, email, senha);
 		usr.setEmail(email);
 		
 		//Assert
 		assertNotEquals(email, usr.getEmail());
 	}
 	
-
+	//2) O sistema deve inserir 200 moedas na carteira do usu√°rio ap√≥s o cadastro do usu√°rio.
+	@Test
+	public void testDadoUmUsuarioValidoDeveConterInicialmenteDuzentasMoedas() {
+		//Arrange
+		String cpf = "01234567890"; 
+		String email = "caio@teste.com.br";
+		String senha = "12345";
+		float moedas = 200;
+		
+		//Act
+		Usuario usr = new Usuario(email, cpf, senha);
+		
+		//Assert
+		assertEquals(usr.getMoedas(), moedas);
+	}
+	
+	@Test
+	public void testDadoUmUsuarioValidoNaoDeveConterInicialmenteMaisQueDuzentasMoedas() {
+		//Arrange
+		String cpf = "01234567890"; 
+		String email = "caio@teste.com.br";
+		String senha = "12345";
+		float moedas = 201;
+		
+		//Act
+		Usuario usr = new Usuario(email, cpf, senha);
+		
+		//Assert
+		assertNotEquals(usr.getMoedas(), moedas);
+	}
+	
+	@Test
+	public void testDadoUmUsuarioValidoNaoDeveConterInicialmenteMenosQueDuzentasMoedas() {
+		//Arrange
+		String cpf = "01234567890"; 
+		String email = "caio@teste.com.br";
+		String senha = "12345";
+		float moedas = 199;
+		
+		//Act
+		Usuario usr = new Usuario(email, cpf, senha);
+		
+		//Assert
+		assertNotEquals(usr.getMoedas(), moedas);
+	}
+	
 }
