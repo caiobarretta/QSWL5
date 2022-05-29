@@ -47,7 +47,13 @@ public class ApostaTestes extends TestCase {
 		aposta.setApostador(usr);
 		aposta.setGolsMandate(numeroDeGolsMandante);
 		aposta.setGolsVisitante(numeroDeGolsVisitante);
-		Boolean fazerAposta = aposta.enviar();
+		Boolean fazerAposta = false;
+		try {
+			fazerAposta = aposta.enviar();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Assert
 		assertTrue(fazerAposta);
@@ -74,7 +80,13 @@ public class ApostaTestes extends TestCase {
 		aposta.setApostador(usr);
 		aposta.setGolsVisitante(numeroDeGolsVisitante);
 		
-		Boolean fazerAposta = !aposta.enviar();
+		Boolean fazerAposta = false;
+		try {
+			fazerAposta = !aposta.enviar();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Assert
 		assertFalse(fazerAposta);
@@ -102,7 +114,13 @@ public class ApostaTestes extends TestCase {
 		aposta.setPartida(partida);
 		aposta.setApostador(usr);
 		aposta.setGolsMandate(numeroDeGolsMandante);
-		Boolean fazerAposta = !aposta.enviar();
+		Boolean fazerAposta = false;
+		try {
+			fazerAposta = !aposta.enviar();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Assert
 		assertFalse(fazerAposta);
@@ -135,7 +153,12 @@ public class ApostaTestes extends TestCase {
 		float valorMoedaUsuarioAntesApostar = usr.getMoedas();
 		
 		//Act
-		aposta.enviar();
+		try {
+			aposta.enviar();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		float valorMoedasUsuarioAposApostar = usr.getMoedas();
 		
 		//Assert
@@ -172,7 +195,13 @@ public class ApostaTestes extends TestCase {
 		aposta.setGolsVisitante(numeroDeGolsVisitante);
 		
 		//Act
-		Boolean fazerAposta = aposta.enviar();
+		Boolean fazerAposta = false;
+		try {
+			fazerAposta = aposta.enviar();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Assert
 		assertTrue(fazerAposta);

@@ -45,7 +45,7 @@ public static final float CUSTO_APOSTA = 50f;
 		this.partida = partida;
 	}
 
-	public boolean enviar() {		
+	public boolean enviar() throws Exception {		
 		if(this.partida.estaDisponivelReceberApostas() && this.apostador.temSaldoSuficiente()) {
 			return this.partida.enviarAposta(this);
 		}
