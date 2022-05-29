@@ -84,8 +84,6 @@ public class ApostaTestes extends TestCase {
 		try {
 			fazerAposta = !aposta.enviar();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		//Assert
@@ -118,8 +116,6 @@ public class ApostaTestes extends TestCase {
 		try {
 			fazerAposta = !aposta.enviar();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		//Assert
@@ -142,7 +138,6 @@ public class ApostaTestes extends TestCase {
 		try {
 			usr = new Usuario(email, cpf, senha);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Aposta aposta = new Aposta();
@@ -156,7 +151,6 @@ public class ApostaTestes extends TestCase {
 		try {
 			aposta.enviar();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		float valorMoedasUsuarioAposApostar = usr.getMoedas();
